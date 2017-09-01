@@ -13,7 +13,8 @@ const Server = use('Server')
 */
 const globalMiddleware = [
   'Adonis/Middleware/Cors',
-  'Adonis/Middleware/BodyParser'
+  'Adonis/Middleware/BodyParser',
+  'Adonis/Middleware/AuthInit'
 ]
 
 /*
