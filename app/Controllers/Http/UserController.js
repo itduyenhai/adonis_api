@@ -2,13 +2,14 @@
 
 class UserController {
 
-    register({ request }) {
-        return { Name: 'Nguyen Vu' }
+    list({ request }) {
+        return { Users: 'List users' }
     }
 
-    login({ request }) {
-
+    profile({ request }) {
+        return { profile: 'Profile user' }
     }
+
 }
 
 module.exports = UserController

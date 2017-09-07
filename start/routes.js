@@ -9,6 +9,13 @@ Route.get('/', ({ request }) => {
 // Auth
 Route
     .group(() => {
-        Route.get('register', 'UserController.register')
-        Route.post('login', 'UserController.login')
+        Route.get('register', 'AuthController.register')
+        Route.post('login', 'AuthController.login')
+    }).prefix('api/v1')
+
+// User
+Route
+    .group(() => {
+        Route.get('users', 'UserController.list')
+        Route.get('user/profile', 'UserController.profile')
     }).prefix('api/v1')
