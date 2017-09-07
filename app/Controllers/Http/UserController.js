@@ -1,5 +1,6 @@
 'use strict'
 const User = use('App/Models/User')
+const uuidv4 = use('uuid/v4')
 
 class UserController {
 
@@ -7,6 +8,7 @@ class UserController {
     async register({ request, response }) {
         const user = new User()
         const { username, email, password } = request.all()
+        user.uuid = uuidv4()
         user.username = username
         user.email = email
         user.password = password

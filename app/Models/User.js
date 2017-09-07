@@ -1,7 +1,6 @@
 'use strict'
 
 const Model = use('Model')
-const uuidv4 = use('uuid/v4');
 
 class User extends Model {
     static boot() {
@@ -20,10 +19,6 @@ class User extends Model {
     // UUID
     static get primaryKey() {
         return 'uuid'
-    }
-
-    static set uuid() {
-        return uuidv4()
     }
 
     static get incrementing() {
