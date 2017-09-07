@@ -24,7 +24,8 @@
     "@adonisjs/ignitor": "^1.0.10",
     "@adonisjs/lucid": "^4.0.15",
     "@adonisjs/validator": "^4.0.3",
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "standard": "^10.0.3"

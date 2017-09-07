@@ -1,6 +1,7 @@
 'use strict'
 
 const Model = use('Model')
+const uuidv4 = use('uuid/v4');
 
 class User extends Model {
     static boot() {
@@ -21,13 +22,12 @@ class User extends Model {
         return 'uuid'
     }
 
-    static get incrementing() {
-        return false
+    static set uuid() {
+        return uuidv4()
     }
 
-    // tokens
-    tokens() {
-        return this.hasMany('App/Model/Token')
+    static get incrementing() {
+        return false
     }
 
     /**
