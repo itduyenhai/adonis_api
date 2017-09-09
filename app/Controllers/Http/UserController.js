@@ -29,13 +29,8 @@ class UserController {
         const { username, password } = request.all()
 
         try {
-            const data = await auth.attempt(username, password, true)
-            if(data){
-                response.status(201).json(data)
-            }else{
-                response.status(401).json({ message: 'Đăng nhập không ...' })
-            }
-            
+            const data = await auth.attempt(username, password, true)            
+            response.status(201).json(data)         
         } catch (error) {
             response.status(403).json({ message: 'Đăng nhập không thành công' })
         }
