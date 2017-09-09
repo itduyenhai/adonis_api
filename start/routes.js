@@ -17,5 +17,5 @@ Route
 Route
     .group(() => {
         Route.get('users', 'UserController.list')
-        Route.get('profile/:id', 'UserController.profile')
+        Route.get('profile/:id', 'UserController.profile').middleware(['auth:jwt'])
     }).prefix('api/v1')
