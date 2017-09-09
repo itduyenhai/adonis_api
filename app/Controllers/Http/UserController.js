@@ -36,12 +36,19 @@ class UserController {
         }
     }
 
-    async list({ request }) {
-        return { Users: 'List users' }
+    async list({ request, response }) {
+        response.status(200).json(await User.all())
     }
 
-    async profile({ request }) {
-        return { profile: 'Profile user' }
+    async profile({ request, params, response }) {
+        const { id } = params
+        const user = await User.find(id)
+        if (!user) {
+            response.status(401).json({message:'Người dùng không tồn tại'})
+        } else {
+            response.status(200).json(user)
+        }
+        
     }
 
 

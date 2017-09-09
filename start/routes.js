@@ -17,5 +17,5 @@ Route
 Route
     .group(() => {
         Route.get('users', 'UserController.list')
-        Route.get('user/profile', 'UserController.profile')
+        Route.get('profile/:id', 'UserController.profile')
     }).prefix('api/v1')
