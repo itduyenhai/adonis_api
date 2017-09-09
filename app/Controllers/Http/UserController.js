@@ -24,8 +24,21 @@ class UserController {
     }
 
     // Login
-    async login({ request }) {
-        return { Name: 'login' }
+    async login({ request, response, auth }) {
+        const user = new User()
+        const { username, password } = request.all()
+
+        try {
+            const data = await auth.attempt(username, password, true)
+            if(data){
+                response.status(201).json(data)
+            }else{
+                response.status(401).json({ message: 'Đăng nhập không ...' })
+            }
+            
+        } catch (error) {
+            response.status(403).json({ message: 'Đăng nhập không thành công' })
+        }
     }
 
     async list({ request }) {
