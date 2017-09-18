@@ -4,16 +4,16 @@ const Model = use('Model')
 
 class Profile extends Model {
   static boot() {
-      super.boot()
+    super.boot()
   }
 
   // UUID
   static get primaryKey() {
-      return 'uuid'
+    return 'uuid'
   }
 
   static get incrementing() {
-      return false
+    return false
   }
 }
 
