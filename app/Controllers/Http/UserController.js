@@ -29,8 +29,8 @@ class UserController {
         const { username, password } = request.all()
 
         try {
-            const data = await auth.attempt(username, password, true)            
-            response.status(201).json(data)         
+            const data = await auth.attempt(username, password, true)
+            response.status(201).json(data)
         } catch (error) {
             response.status(403).json({ message: 'Đăng nhập không thành công' })
         }
@@ -48,11 +48,8 @@ class UserController {
         } else {
             response.status(200).json(user)
         }
-        
+
     }
-
-
-
 }
 
 module.exports = UserController
