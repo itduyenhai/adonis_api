@@ -16,7 +16,6 @@ class UserController {
         try {
             await user.save()
             return { message: 'Đăng ký tài khoản thành công' }
-
         } catch (error) {
             response.status(403).json({ message: 'Đăng ký tài khoản thất bại' })
         }
@@ -36,10 +35,12 @@ class UserController {
         }
     }
 
+    // List Users
     async list({ request, response }) {
         response.status(200).json(await User.all())
     }
 
+    // Profile
     async profile({ request, params, response }) {
         const { id } = params
         const user = await User.find(id)
