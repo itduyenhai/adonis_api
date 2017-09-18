@@ -3,9 +3,18 @@
 const Model = use('Model')
 
 class Token extends Model {
-    user() {
-        return this.belongsTo('App/Model/User')
-    }
+
+  // UUID
+  static get primaryKey() {
+    return 'uuid'
+  }
+
+  static get incrementing() {
+    return false
+  }
+  user() {
+    return this.belongsTo('App/Model/User')
+  }
 }
 
 module.exports = Token
