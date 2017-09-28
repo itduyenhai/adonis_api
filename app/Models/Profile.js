@@ -2,7 +2,10 @@
 
 const Model = use('Model')
 
-class Token extends Model {
+class Profile extends Model {
+  static boot() {
+    super.boot()
+  }
 
   // UUID
   static get primaryKey() {
@@ -12,9 +15,6 @@ class Token extends Model {
   static get incrementing() {
     return false
   }
-  user() {
-    return this.belongsTo('App/Model/User')
-  }
 }
 
-module.exports = Token
+module.exports = Profile
