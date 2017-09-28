@@ -21,7 +21,7 @@ UserHook.hashPassword = async (userInstance) => {
 }
 
 UserHook.createUUID = async (userInstance) => {
-  if (userInstance.uuid) {
-    userInstance.uuid = uuidv4()
-  }
+  
+    userInstance.uuid = await uuidv4()
+
 }
