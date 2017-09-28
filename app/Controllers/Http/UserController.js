@@ -1,6 +1,5 @@
 'use strict'
 const User = use('App/Models/User')
-const uuidv4 = use('uuid/v4')
 
 class UserController {
 
@@ -8,7 +7,6 @@ class UserController {
     async register({ request, response }) {
         const user = new User()
         const { username, email, password } = request.all()
-        user.uuid = uuidv4()
         user.username = username
         user.email = email
         user.password = password
@@ -29,8 +27,8 @@ class UserController {
         const { username, password } = request.all()
 
         try {
-            const data = await auth.attempt(username, password, true)            
-            response.status(201).json(data)         
+            const data = await auth.attempt(username, password, true)
+            response.status(201).json(data)
         } catch (error) {
             response.status(403).json({ message: 'Đăng nhập không thành công' })
         }
@@ -40,15 +38,19 @@ class UserController {
         response.status(200).json(await User.all())
     }
 
-    async profile({ request, params, response }) {
-        const { id } = params
-        const user = await User.find(id)
+    async profile({ request, response, auth, params }) {
+
+        if (auth.user.uuid !== params.id) {
+            response.status(300).json({message: 'Bạn không có quyền xem tài khoản này'})
+        }
+
+        const user = await User.find(params.id)
         if (!user) {
             response.status(401).json({message:'Người dùng không tồn tại'})
         } else {
             response.status(200).json(user)
         }
-        
+
     }
 
 
