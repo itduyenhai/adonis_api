@@ -8,10 +8,10 @@ class Token extends Model {
   static get primaryKey() {
     return 'uuid'
   }
-
   static get incrementing() {
     return false
   }
+
   user() {
     return this.belongsTo('App/Model/User')
   }

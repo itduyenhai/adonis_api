@@ -11,10 +11,10 @@ class Profile extends Model {
   static get primaryKey() {
     return 'uuid'
   }
-
   static get incrementing() {
     return false
   }
+  
 }
 
 module.exports = Profile

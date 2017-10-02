@@ -60,16 +60,16 @@ module.exports = {
   |
   | The jwt authenticator works by passing a jwt token on each HTTP request
   | via HTTP `Authorization` header.
-  |
+  | // Key: self::app.appKey
   */
   jwt: {
     serializer: 'lucid',
     model: 'App/Models/User',
     scheme: 'jwt',
-    uid: 'username',
+    uid: 'cmnd',
     password: 'password',
     options: {
-      secret: 'self::app.appKey'
+      secret: 'Jpox3WIMz8E08JPfC9A26AJIfBJ6yMDs'
     }
   }
 }
