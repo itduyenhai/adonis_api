@@ -5,15 +5,6 @@ const uuidv4 = use('uuid/v4')
 
 const UserHook = module.exports = {}
 
-/**
- * Hash using password as a hook.
- *
- * @method
- *
- * @param  {Object} userInstance
- *
- * @return {void}
- */
 UserHook.hashPassword = async (userInstance) => {
   if (userInstance.password) {
     userInstance.password = await Hash.make(userInstance.password)
@@ -21,7 +12,5 @@ UserHook.hashPassword = async (userInstance) => {
 }
 
 UserHook.createUUID = async (userInstance) => {
-  
     userInstance.uuid = await uuidv4()
-
 }

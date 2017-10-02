@@ -10,11 +10,6 @@ class User extends Model {
     this.addHook('beforeCreate', 'User.createUUID')
   }
 
-  static boot() {
-    super.boot()
-    this.addHook('beforeCreate', 'User.hashPassword')
-  }
-
   // UUID
   static get primaryKey() {
     return 'uuid'

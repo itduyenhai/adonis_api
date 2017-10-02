@@ -6,9 +6,8 @@ class UserController {
   // Register
   async register({request, response}) {
     const user = new User()
-    const {username, email, password} = request.all()
-    user.username = username
-    user.email = email
+    const {cmnd, password} = request.all()
+    user.cmnd = cmnd
     user.password = password
 
     try {
@@ -26,10 +25,10 @@ class UserController {
   // Login
   async login({request, response, auth}) {
     const user = new User()
-    const {username, password} = request.all()
+    const {cmnd, password} = request.all()
 
     try {
-      const data = await auth.attempt(username, password, true)
+      const data = await auth.attempt(cmnd, password, true)
       response.status(201).json(data)
     } catch (error) {
       response.status(403).json({
